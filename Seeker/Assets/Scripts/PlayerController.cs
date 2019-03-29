@@ -11,12 +11,16 @@ public class PlayerController : MonoBehaviour
     public float jumpRate;
     public float maxPitch;
     public float minPitch;
+    public GameObject shot;
+    public Transform shotSpawnPos;
+    public float fireRate;
 
 
     private Vector3 jump;
-    private float nextJump = 0;
-    private float yaw = -16.0f;
+    private float nextJump = 0.0f;
+    private float yaw = 0.0f;
     private float pitch = 0.0f;
+    private float nextFire = 0.0f;
     private Rigidbody rb;
 
     // Use this for initialization
@@ -50,5 +54,12 @@ public class PlayerController : MonoBehaviour
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+
+        if(Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawnPos.position, shotSpawnPos.rotation);
+            //play audio
+        }
     }
 }
