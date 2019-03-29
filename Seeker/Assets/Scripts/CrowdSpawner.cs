@@ -17,24 +17,25 @@ public class CrowdSpawner : MonoBehaviour {
     public GameObject targetPrefab;     // To hold target crowd object prefab
     public Vector3 center;              // To hold the position of the drawn cube
     public Vector3 size;                // To hold the size of the drawn cube
-    public int crowd_count;             // To hold the amount of crowd objects wanting to spawn
+    public int crowdCount;             // To hold the amount of crowd objects wanting to spawn
     public GameObject targetPos;           // To hold position of target to be shown in Target Window
 
     private Color targetColor;          // To hold color scheme of target
+    private int maxCrowdCount = 30;
    
 	// Use this for initialization
 	void Start () {
         // restrict the developer of crashing the game. 20 objects is minimum
-        if(crowd_count > 21)
+        if(crowdCount > maxCrowdCount)
         {
-            crowd_count = 20;
+            crowdCount = maxCrowdCount;
         }
 
         //spawn target NPC
         SpawnTarget();
 
         // spawns 'crowd_count' amount of objects by calling the SpawnNPC
-		for(int i = 0; i < crowd_count; i++)
+		for(int i = 0; i < crowdCount; i++)
         {
             SpawnNPC();
         }
