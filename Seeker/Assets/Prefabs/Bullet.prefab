@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54544853603030448}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 30
+  bullet: {fileID: 1027960299439028}
+  mainCam: {fileID: 20520678561115828, guid: 0ebed7d9e8f8e674fb6293d83cb81342, type: 2}
+  quarryCam: {fileID: 20062972010299804, guid: 9650ee1b98424174189396d2964d57ca, type: 2}
 --- !u!135 &135480161617397808
 SphereCollider:
   m_ObjectHideFlags: 1

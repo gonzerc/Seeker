@@ -11,7 +11,8 @@ using UnityEngine;
  */
 
 
-public class CrowdSpawner : MonoBehaviour {
+public class CrowdSpawner : MonoBehaviour
+{
 
     public GameObject crowdPrefab;      // To hold the crowd object prefab
     public GameObject targetPrefab;     // To hold target crowd object prefab
@@ -20,15 +21,19 @@ public class CrowdSpawner : MonoBehaviour {
     public int crowdCount;             // To hold the amount of crowd objects wanting to spawn
     public GameObject targetPos;           // To hold position of target to be shown in Target Window
 
+    public GameObject quarryCam;            //The camera that is set to follow the quarry
+    private Vector3 offset;                 //vector used for the camera to follow the quarry
+    private Transform camTarget;             //The transform for the target for the camera
+    private Transform camTrans;              //The transform for the camera to the target
+
     private Color targetColor;          // To hold color scheme of target
     private int maxCrowdCount = 30;
-   
-	// Use this for initialization
-	void Start () {
-        Cursor.visible = false;
 
+    // Use this for initialization
+    void Start()
+    {
         // restrict the developer of crashing the game. 20 objects is minimum
-        if(crowdCount > maxCrowdCount)
+        if (crowdCount > maxCrowdCount)
         {
             crowdCount = maxCrowdCount;
         }
@@ -37,11 +42,15 @@ public class CrowdSpawner : MonoBehaviour {
         SpawnTarget();
 
         // spawns 'crowd_count' amount of objects by calling the SpawnNPC
-		for(int i = 0; i < crowdCount; i++)
+        for (int i = 0; i < crowdCount; i++)
         {
             SpawnNPC();
         }
-	}
+
+        quarryCam.gameObject.SetActive(false);  //Quarry Cam is set false until the mission fails
+        camTrans = quarryCam.GetComponent<Transform>(); //Setting the position of the quarry cam
+
+    }
 
     /// <summary>
     /// SpawnTarget method: Will spawn an object in a random location within the drawn box as target.
@@ -52,6 +61,18 @@ public class CrowdSpawner : MonoBehaviour {
     {
         Vector3 pos = new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
         GameObject target = Instantiate(crowdPrefab, pos, Quaternion.identity);
+        camTarget = target.GetComponent<Transform>();   //Gets the transform of the target for the target camera
+        if (target.transform.position.z < 0)             //Checks to see if the target is in the +Z of the -Z position
+        {
+            //If the Z is negative, the camera will move up until it's -2 away from the target
+            offset = new Vector3(target.transform.position.x * 0, target.transform.position.y * 1, (target.transform.position.z + (-1 * (target.transform.position.z + 2))));
+        }
+        else
+        {
+            //If the Z is positive, the camera will move back until it's -2 away from the target
+            offset = new Vector3(target.transform.position.x * 0, target.transform.position.y * 1, (target.transform.position.z - (target.transform.position.z + 2)));
+        }
+        target.gameObject.tag = "Target";   //assigns a tag to the target
         GameObject targetClone = Instantiate(targetPrefab, targetPos.transform.position, Quaternion.identity);
         targetColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         target.GetComponent<Renderer>().material.color = targetColor;
@@ -70,9 +91,11 @@ public class CrowdSpawner : MonoBehaviour {
         if (randColor != targetColor)
         {
             GameObject dummy = Instantiate(crowdPrefab, pos, Quaternion.identity);
+            dummy.gameObject.tag = "FakeTarget"; //assigns a tag to nontargets
             dummy.GetComponent<Renderer>().material.color = randColor;
-            Debug.Log("NPC: " + randColor);
-        } else
+            //Debug.Log("NPC: " + randColor);
+        }
+        else
         {
             SpawnNPC();
         }
@@ -85,5 +108,10 @@ public class CrowdSpawner : MonoBehaviour {
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);    // color of drawn gizmo (transperant because of alpha at 0.5f
         Gizmos.DrawCube(center, size);              // draw the cube at position 'center', and of size 'size'
+    }
+
+    void LateUpdate()
+    {
+        camTrans.position = camTarget.position + offset; //Updates the camera's position relative to the target's position with th offset
     }
 }

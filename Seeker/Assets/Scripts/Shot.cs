@@ -3,22 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Shot : MonoBehaviour {
+public class Shot : MonoBehaviour
+{
 
     public float bulletSpeed;
     Rigidbody rb;
+    public GameObject bullet;
+    public Camera mainCam;
+    public Camera quarryCam;
 
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * bulletSpeed;
-	}
-
-    /*private void OnCollisionEnter(Collision collision)
+    // Use this for initialization
+    void Start()
     {
-        Collider c = collision.collider;
+        rb = GetComponent<Rigidbody>();
+        bullet = GetComponent<GameObject>();
+        rb.velocity = transform.forward * bulletSpeed;
 
-        c.GetComponent<Rigidbody>().useGravity = false;
-        c.GetComponent<NavMeshAgent>().enabled = false;
-    }*/
+        quarryCam.enabled = false;  //Quarry Cam is set false until the mission fails
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "FakeTarget")
+        {
+            Debug.Log("WRONG TARGET");
+            col.gameObject.SetActive(false);
+            Destroy(bullet.gameObject);
+            quarryCam.enabled = true;   //Quarry Cam is set true when nontarget is killed
+        }
+
+        if (col.gameObject.tag == "Target")
+        {
+            Debug.Log("QUARRY HIT");
+            col.gameObject.SetActive(false);
+            Destroy(bullet.gameObject);
+
+        }
+    }
 }

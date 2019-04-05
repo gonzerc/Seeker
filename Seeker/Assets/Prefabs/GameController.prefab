@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4720540017672554}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TargetStill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 83a2a6254fa9de248b6d6e10f16d0756, type: 2}
   m_TargetDisplay: 0
@@ -155,10 +155,11 @@ MonoBehaviour:
   size: {x: 58, y: 1, z: 58}
   crowdCount: 30
   targetPos: {fileID: 1639917360653084}
+  quarryCam: {fileID: 1443810242664972, guid: 9650ee1b98424174189396d2964d57ca, type: 2}
 --- !u!124 &124446143817704020
 Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1845483742135402}
-  m_Enabled: 1
+  m_Enabled: 0

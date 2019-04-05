@@ -23,11 +23,18 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
     private Rigidbody rb;
 
+    public AudioSource source;
+    public AudioClip clip1;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        source = audioSources[0];
+        clip1 = audioSources[0].clip;
     }
 
     // Update is called once per frame
@@ -60,6 +67,7 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawnPos.position, shotSpawnPos.rotation);
             //play audio
+            source.PlayOneShot(clip1);
         }
     }
 }
