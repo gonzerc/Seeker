@@ -25,6 +25,8 @@ public class CrowdSpawner : MonoBehaviour {
    
 	// Use this for initialization
 	void Start () {
+        Cursor.visible = false;
+
         // restrict the developer of crashing the game. 20 objects is minimum
         if(crowdCount > maxCrowdCount)
         {
