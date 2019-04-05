@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4720540017672554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TargetStill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 83a2a6254fa9de248b6d6e10f16d0756, type: 2}
   m_TargetDisplay: 0
@@ -151,9 +151,9 @@ MonoBehaviour:
     type: 2}
   targetPrefab: {fileID: 1465175052220938, guid: 14a58c51eae7f3c4ca48b3d32a5ff342,
     type: 2}
-  center: {x: 0, y: 10, z: 0}
+  center: {x: 0, y: 1, z: 0}
   size: {x: 58, y: 1, z: 58}
-  crowd_count: 20
+  crowdCount: 30
   targetPos: {fileID: 1639917360653084}
 --- !u!124 &124446143817704020
 Behaviour:
