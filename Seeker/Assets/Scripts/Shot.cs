@@ -46,6 +46,7 @@ public class Shot : MonoBehaviour
             col.gameObject.SetActive(false);
             Destroy(this.gameObject);
             cs.setEndGameText("You Win!");
+            cs.RestartScene();
         }
     }
 }
