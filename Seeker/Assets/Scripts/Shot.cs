@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Shot : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Shot : MonoBehaviour
     public GameObject bullet;
     public Camera mainCam;
     public Camera quarryCam;
+    
+    private CrowdSpawner cs;
 
     // Use this for initialization
     void Start()
@@ -20,6 +23,8 @@ public class Shot : MonoBehaviour
         rb.velocity = transform.forward * bulletSpeed;
 
         quarryCam.enabled = false;  //Quarry Cam is set false until the mission fails
+
+        cs = GameObject.FindGameObjectWithTag("GameController").GetComponent<CrowdSpawner>();
     }
 
     void OnCollisionEnter(Collision col)
@@ -28,7 +33,10 @@ public class Shot : MonoBehaviour
         {
             Debug.Log("WRONG TARGET");
             col.gameObject.SetActive(false);
-            Destroy(bullet.gameObject);
+            Destroy(this.gameObject);
+            cs.setEndGameText("Keep Looking");
+
+
             quarryCam.enabled = true;   //Quarry Cam is set true when nontarget is killed
         }
 
@@ -36,8 +44,8 @@ public class Shot : MonoBehaviour
         {
             Debug.Log("QUARRY HIT");
             col.gameObject.SetActive(false);
-            Destroy(bullet.gameObject);
-
+            Destroy(this.gameObject);
+            cs.setEndGameText("You Win!");
         }
     }
 }
