@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  * This is a temporary script to spawn an infinite amount of crowds
@@ -29,6 +30,8 @@ public class CrowdSpawner : MonoBehaviour
     private Color targetColor;          // To hold color scheme of target
     private int maxCrowdCount = 30;
 
+    public Text endgame;
+
     // Use this for initialization
     void Start()
     {
@@ -50,6 +53,7 @@ public class CrowdSpawner : MonoBehaviour
         quarryCam.gameObject.SetActive(false);  //Quarry Cam is set false until the mission fails
         camTrans = quarryCam.GetComponent<Transform>(); //Setting the position of the quarry cam
 
+        endgame.text = "";
     }
 
     /// <summary>
@@ -86,7 +90,7 @@ public class CrowdSpawner : MonoBehaviour
     /// </summary>
     private void SpawnNPC()
     {
-        Vector3 pos = new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
+        Vector3 pos = new Vector3(Random.Range((center - size).x / 2, (center + size).x / 2), Random.Range((center - size).y / 2, (center - size).y / 2), Random.Range((center - size).z / 2, (center + size).z / 2));
         Color randColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         if (randColor != targetColor)
         {
@@ -113,5 +117,10 @@ public class CrowdSpawner : MonoBehaviour
     void LateUpdate()
     {
         camTrans.position = camTarget.position + offset; //Updates the camera's position relative to the target's position with th offset
+    }
+
+    public void setEndGameText(string text)
+    {
+        endgame.text = text;
     }
 }

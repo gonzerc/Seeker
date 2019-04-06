@@ -20,7 +20,7 @@ public class BulletCleanUp : MonoBehaviour {
     {
         // Destroy everything that leaves the trigger
         //Debug.Log("Bullet deleted");
-        if (other.tag == "Bullet")
+        if (other.tag != "Player")
         {
             Destroy(other.gameObject);
         }
