@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
  * This is a temporary script to spawn an infinite amount of crowds
@@ -122,5 +123,10 @@ public class CrowdSpawner : MonoBehaviour
     public void setEndGameText(string text)
     {
         endgame.text = text;
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
