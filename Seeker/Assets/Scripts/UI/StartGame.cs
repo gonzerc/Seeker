@@ -8,12 +8,14 @@ public class StartGame : MonoBehaviour {
 
     public Button startButton;           // To hold the play button
     public Button quitButton;           // To hold the control button
+    public Text loadText;
 
     private void Awake()
     {
         // **** Set all the listeners for each button ****
         startButton.onClick.AddListener(delegate { start(); });
         quitButton.onClick.AddListener(delegate { quit(); });
+        loadText.text = "";
     }
 
     /// <summary>
@@ -22,6 +24,7 @@ public class StartGame : MonoBehaviour {
     /// <param name="scene"> Start scene </param>
     public void start()
     {
+        loadText.text = "Loading . . .";
         SceneManager.LoadScene("Main");
     }
 

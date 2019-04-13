@@ -127,6 +127,13 @@ public class CrowdSpawner : MonoBehaviour
 
     public void RestartScene()
     {
+        StartCoroutine(Restart());
+    }
+
+    IEnumerator Restart()
+    {
+        Debug.Log("Restarting...");
+        yield return new WaitForSecondsRealtime(3);
         SceneManager.LoadScene("MainMenu");
     }
 }
