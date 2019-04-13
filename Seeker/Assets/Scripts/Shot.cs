@@ -13,7 +13,7 @@ public class Shot : MonoBehaviour
     public Camera mainCam;
     public Camera quarryCam;
     
-    private CrowdSpawner cs;
+    private GameController gameController;
 
     // Use this for initialization
     void Start()
@@ -24,7 +24,7 @@ public class Shot : MonoBehaviour
 
         quarryCam.enabled = false;  //Quarry Cam is set false until the mission fails
 
-        cs = GameObject.FindGameObjectWithTag("GameController").GetComponent<CrowdSpawner>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     void OnCollisionEnter(Collision col)
@@ -34,7 +34,7 @@ public class Shot : MonoBehaviour
             Debug.Log("WRONG TARGET");
             col.gameObject.SetActive(false);
             Destroy(this.gameObject);
-            cs.setEndGameText("Keep Looking");
+            gameController.setEndGameText("Keep Looking");
 
 
             quarryCam.enabled = true;   //Quarry Cam is set true when nontarget is killed
@@ -45,8 +45,8 @@ public class Shot : MonoBehaviour
             Debug.Log("QUARRY HIT");
             col.gameObject.SetActive(false);
             Destroy(this.gameObject);
-            cs.setEndGameText("You Win!");
-            cs.RestartScene();
+            gameController.setEndGameText("You Win!");
+            gameController.RestartScene();
         }
     }
 }
