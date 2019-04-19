@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606425111120052}
   - component: {fileID: 114838366283184734}
+  - component: {fileID: 114376941116625190}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -136,6 +137,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &114376941116625190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333261262320078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3565eadb743eaf14e87655b6fc23e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puaseCanvas: {fileID: 0}
+  continueButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  quitGameButton: {fileID: 0}
 --- !u!114 &114838366283184734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,11 +167,12 @@ MonoBehaviour:
     type: 2}
   targetPrefab: {fileID: 1465175052220938, guid: 14a58c51eae7f3c4ca48b3d32a5ff342,
     type: 2}
-  center: {x: 0, y: 1, z: 0}
+  center: {x: 19.7, y: 10.65, z: -58.9}
   size: {x: 58, y: 1, z: 58}
   crowdCount: 30
   targetPos: {fileID: 1639917360653084}
   quarryCam: {fileID: 1443810242664972, guid: 9650ee1b98424174189396d2964d57ca, type: 2}
+  endgame: {fileID: 0}
 --- !u!124 &124446143817704020
 Behaviour:
   m_ObjectHideFlags: 1

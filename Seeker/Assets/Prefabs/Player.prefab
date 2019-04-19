@@ -129,15 +129,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783832386367060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0.87462103, z: -0, w: 0.48480737}
+  m_LocalPosition: {x: 89.26826, y: 4.644, z: 9.594266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4848921856062714}
   - {fileID: 4757979116099378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -122.00001, z: 0}
 --- !u!20 &20520678561115828
 Camera:
   m_ObjectHideFlags: 1
@@ -345,7 +345,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -378,6 +378,7 @@ MonoBehaviour:
   shot: {fileID: 1027960299439028, guid: bec48f1326e6c1b42b3a69c19111ce58, type: 2}
   shotSpawnPos: {fileID: 4249186791627252}
   fireRate: 1
+  pauseCanvas: {fileID: 0}
   source: {fileID: 0}
   clip1: {fileID: 0}
 --- !u!124 &124001389144806716

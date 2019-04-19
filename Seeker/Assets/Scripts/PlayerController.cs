@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public Transform shotSpawnPos;
     public float fireRate;
+    public GameObject pauseCanvas;
 
 
     private Vector3 jump;
@@ -68,6 +69,16 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawnPos.position, shotSpawnPos.rotation);
             //play audio
             source.PlayOneShot(clip1);
+        }
+
+        // as long as canvas is inactive, and player preses the pause button.
+        if (Input.GetKeyDown(KeyCode.Escape) && !pauseCanvas.activeSelf)
+        {
+            // enable canvas
+            pauseCanvas.SetActive(true);
+
+            // pause game
+            Time.timeScale = 0f;
         }
     }
 }
