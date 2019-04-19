@@ -460,9 +460,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1699770127}
+  - component: {fileID: 1699770130}
   - component: {fileID: 1699770129}
   - component: {fileID: 1699770128}
-  - component: {fileID: 1699770130}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -491,12 +491,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: 54c1ac34adbbc7c449df8966c3d78ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1635173884080940, guid: 70c5036c8a46b944c8713fc4f24999d4,
     type: 2}
-  center: {x: -74.8, y: 2, z: 45.79}
+  center: {x: 76.4, y: 2, z: 50.4}
   size: {x: 56.37, y: 1, z: 55.97}
   crowd_count: 30
 --- !u!114 &1699770129
@@ -507,12 +507,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: 54c1ac34adbbc7c449df8966c3d78ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1635173884080940, guid: 70c5036c8a46b944c8713fc4f24999d4,
     type: 2}
-  center: {x: 0, y: 2, z: 0}
+  center: {x: -74.8, y: 2, z: 45.79}
   size: {x: 56.37, y: 1, z: 55.97}
   crowd_count: 30
 --- !u!114 &1699770130
@@ -523,12 +523,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: 54c1ac34adbbc7c449df8966c3d78ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1635173884080940, guid: 70c5036c8a46b944c8713fc4f24999d4,
     type: 2}
-  center: {x: 76.4, y: 2, z: 50.4}
+  center: {x: 0, y: 2, z: 0}
   size: {x: 56.37, y: 1, z: 55.97}
   crowd_count: 30
 --- !u!1 &2021406663
