@@ -13,6 +13,7 @@ public class StartGame : MonoBehaviour {
     private void Awake()
     {
         // **** Set all the listeners for each button ****
+        Cursor.visible = true;
         startButton.onClick.AddListener(delegate { start(); });
         quitButton.onClick.AddListener(delegate { quit(); });
         loadText.text = "";
