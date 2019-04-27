@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     public AudioSource source;
     public AudioClip clip1;
 
+    // Pause menu
+    public GameObject pauseMenuCanvas;
+    public GameObject crossHair;
+
     // Use this for initialization
     void Start()
     {
@@ -35,6 +39,8 @@ public class PlayerController : MonoBehaviour
         AudioSource[] audioSources = GetComponents<AudioSource>();
         source = audioSources[0];
         clip1 = audioSources[0].clip;
+
+        Time.timeScale = 1f;            // Starts game at timescale 1 for active
     }
 
     // Update is called once per frame
@@ -68,6 +74,14 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawnPos.position, shotSpawnPos.rotation);
             //play audio
             source.PlayOneShot(clip1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            crossHair.SetActive(false);
+            pauseMenuCanvas.SetActive(true);
+            Cursor.visible = true;
+            Time.timeScale = 0;
         }
     }
 }

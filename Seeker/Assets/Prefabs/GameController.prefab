@@ -19,7 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4606425111120052}
-  - component: {fileID: 114838366283184734}
+  - component: {fileID: 82975093488358246}
+  - component: {fileID: 114698277679922704}
+  - component: {fileID: 114940767066009502}
+  - component: {fileID: 114740209873599636}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -136,7 +139,113 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &114838366283184734
+--- !u!82 &82975093488358246
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333261262320078}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7e72ea5406fa37d439158981414d95ee, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114698277679922704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333261262320078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518ccd3873fa21841842edd002f3aefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+    type: 2}
+  targetClonePrefab: {fileID: 1465175052220938, guid: 14a58c51eae7f3c4ca48b3d32a5ff342,
+    type: 2}
+  targetClonePos: {fileID: 1639917360653084}
+  numSpawners: 3
+  center:
+  - {x: 105, y: 0, z: 30}
+  - {x: -30, y: 0, z: 105}
+  - {x: 20, y: 0, z: -60}
+  size:
+  - {x: 80, y: 0, z: 80}
+  - {x: 80, y: 0, z: 80}
+  - {x: 80, y: 0, z: 80}
+  crowd_count: 30
+--- !u!114 &114740209873599636
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,18 +253,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333261262320078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 518ccd3873fa21841842edd002f3aefa, type: 3}
+  m_Script: {fileID: 11500000, guid: fe652432c3c88af46a1a62d83bf852fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  endGame: {fileID: 0}
+  CrowdSpawner: {fileID: 114698277679922704}
+--- !u!114 &114940767066009502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333261262320078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7dfa5a351cf0ab4ca3a31421b64de95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowdPrefab: {fileID: 1074267516740240, guid: 06c03736ac434d84cbbb22e37cebfcc2,
     type: 2}
-  targetPrefab: {fileID: 1465175052220938, guid: 14a58c51eae7f3c4ca48b3d32a5ff342,
+  targetClonePrefab: {fileID: 1000754061903896, guid: ec047eb95f338b144809e42b9bacaa30,
     type: 2}
-  center: {x: 0, y: 1, z: 0}
-  size: {x: 58, y: 1, z: 58}
-  crowdCount: 30
-  targetPos: {fileID: 1639917360653084}
-  quarryCam: {fileID: 1443810242664972, guid: 9650ee1b98424174189396d2964d57ca, type: 2}
+  targetClonePos: {fileID: 1639917360653084}
+  numSpawners: 3
+  center:
+  - {x: 105, y: 0, z: 30}
+  - {x: -30, y: 0, z: 105}
+  - {x: 20, y: 0, z: -60}
+  size:
+  - {x: 80, y: 0, z: 80}
+  - {x: 80, y: 0, z: 80}
+  - {x: 80, y: 0, z: 80}
+  crowd_count: 30
 --- !u!124 &124446143817704020
 Behaviour:
   m_ObjectHideFlags: 1

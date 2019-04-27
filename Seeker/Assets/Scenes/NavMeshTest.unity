@@ -366,6 +366,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588506200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1588506203}
+  - component: {fileID: 1588506202}
+  - component: {fileID: 1588506201}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1588506201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588506200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1588506202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588506200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &1588506203
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1588506200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676317821
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,9 +522,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1699770127}
+  - component: {fileID: 1699770130}
   - component: {fileID: 1699770129}
   - component: {fileID: 1699770128}
-  - component: {fileID: 1699770130}
+  - component: {fileID: 1699770131}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -491,13 +554,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: a7dfa5a351cf0ab4ca3a31421b64de95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1074267516740240, guid: 06c03736ac434d84cbbb22e37cebfcc2,
     type: 2}
-  center: {x: -74.8, y: 2, z: 45.79}
-  size: {x: 56.37, y: 1, z: 55.97}
+  center: {x: 76.78, y: 2, z: 50.2}
+  size: {x: 56, y: 1, z: 56}
   crowd_count: 30
 --- !u!114 &1699770129
 MonoBehaviour:
@@ -507,13 +570,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: a7dfa5a351cf0ab4ca3a31421b64de95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1074267516740240, guid: 06c03736ac434d84cbbb22e37cebfcc2,
     type: 2}
-  center: {x: 0, y: 2, z: 0}
-  size: {x: 56.37, y: 1, z: 55.97}
+  center: {x: -76, y: 2, z: 46.6}
+  size: {x: 56, y: 1, z: 56}
   crowd_count: 30
 --- !u!114 &1699770130
 MonoBehaviour:
@@ -523,14 +586,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699770126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ff6346cddcdd947a728d961ff19bab, type: 3}
+  m_Script: {fileID: 11500000, guid: a7dfa5a351cf0ab4ca3a31421b64de95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowdPrefab: {fileID: 1571865909407312, guid: d35a0d87a4dee51459ed21520c8a1a03,
+  crowdPrefab: {fileID: 1074267516740240, guid: 06c03736ac434d84cbbb22e37cebfcc2,
     type: 2}
-  center: {x: 76.4, y: 2, z: 50.4}
-  size: {x: 56.37, y: 1, z: 55.97}
+  center: {x: 0, y: 2, z: 0}
+  size: {x: 56, y: 1, z: 56}
   crowd_count: 30
+--- !u!114 &1699770131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699770126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee7fcf378e58d144a2140e08cda49a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  exitGameButton: {fileID: 0}
 --- !u!1 &2021406663
 GameObject:
   m_ObjectHideFlags: 0
