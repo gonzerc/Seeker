@@ -12,9 +12,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject mainMenuButton;   // To hold the menu button
     public GameObject exitGameButton;   // To hold the exit button
 
+    GameController gc;
+
     // Use this for initialization
     void Awake()
     {
+        gc = GameObject.FindObjectOfType<GameController>();
+
         // **** Set all the listeners for each button ****
         continueButton.GetComponent<Button>().onClick.AddListener(delegate { ContinueGame(); });
         mainMenuButton.GetComponent<Button>().onClick.AddListener(delegate { MainMenu(); });
@@ -30,6 +34,8 @@ public class PauseMenu : MonoBehaviour
         gameObject.SetActive(false);    // set cavas to false
         Cursor.visible = false;
         crossHair.SetActive(true);
+        GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;
+        gc.ResumeMusic();
     }
 
     /// <summary>
