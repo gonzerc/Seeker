@@ -34,4 +34,14 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void PauseMusic()
+    {
+        GetComponent<AudioSource>().Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
 }
